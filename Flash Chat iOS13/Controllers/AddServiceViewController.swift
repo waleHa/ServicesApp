@@ -203,9 +203,9 @@ class AddServiceViewController: UIViewController {
                 
 //                    if(Constants.User.changed == false){
 //                        if (Constants.User.UID.count <= 1){
-                        Constants.User.UID = (Auth.auth().currentUser?.uid ?? "") as String
+//                        Constants.User.UID = (Auth.auth().currentUser?.uid ?? "") as String
 //                            Constants.User.changed = true
-//                        }
+//                        }}
                 
                         self.serviceCollectionRef = Firestore.firestore().collection("\(Constants.Firebase.USERS)/\(Constants.User.UID)/Service/")
                 
@@ -235,8 +235,11 @@ class AddServiceViewController: UIViewController {
                         }
                         else
                         {
-                            Firestore.firestore().document("/\(Constants.Firebase.USERS)/\(Constants.User.UID)/Service/\(self.service.type)&\(self.service.city)").setData([Constants.Firebase.category:self.service.category,Constants.Firebase.type:self.service.type, Constants.Firebase.fullAddress: [Constants.Firebase.address1:self.service.address1,Constants.Firebase.address2:self.service.address2,  Constants.Firebase.city:self.service.city, Constants.Firebase.province:self.service.province,  Constants.Firebase.zipCode:self.service.zipCode, Constants.Firebase.country:self.service.country]])
+                            Firestore.firestore().document("/\(Constants.Firebase.USERS)/\(Constants.User.UID)/Service/\(self.service.type)&\(self.service.city)").setData([Constants.Firebase.category:self.service.category,Constants.Firebase.type:self.service.type, Constants.Firebase.fullAddress: [Constants.Firebase.address1:self.service.address1,Constants.Firebase.address2:self.service.address2,  Constants.Firebase.city:self.service.city, Constants.Firebase.province:self.service.province,  Constants.Firebase.zipCode:self.service.zipCode, Constants.Firebase.country:self.service.country],"days": self.service.days,"startEnd":self.service.startEnd])
+                            
+                            
 // var days: [String : Bool] = ["Monday" : false, "Tuesday" : false, "Wednesday" : false, "Thursday" : false, "Friday" : false, "Saturday" : false, "Sunday" : false]
+                            
 // var startEnd : [String:[String?]] = ["Monday" : [nil, nil], "Tuesday" : [nil, nil],  "Wednesday" : [nil, nil],   "Thursday" : [nil, nil],  "Friday" : [nil, nil],   "Saturday" : [nil, nil],    "Sunday" : [nil, nil]]
                             //        service.days["Thursday1"] = true;
                             //    startEnd[Thursday]?[0] = "08:00 AM"
