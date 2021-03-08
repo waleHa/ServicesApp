@@ -69,5 +69,21 @@ class Utilities{
 
     }
 
+    static func dialNumber(_ number : String) {
+
+        
+        
+        if let url = URL(string: "TEL   ://\(number)"),
+       UIApplication.shared.canOpenURL(url) {
+          if #available(iOS 10, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler:nil)
+           } else {
+               UIApplication.shared.openURL(url)
+           }
+       } else {
+                // add error message here
+       }
+    }
+    
 }
 

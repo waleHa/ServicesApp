@@ -12,6 +12,10 @@ struct Constants {
     struct Segues {
         static let registerToMain = "RegisterToMain"
     }
+    struct yohoInfo {
+    static let email = "yoho.serv@gmail.com"
+    static let phone = "226-503-3915"
+    }
     struct Storyboard {
         static let mainViewController = "MainViewController"
     }
